@@ -5,6 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
+import { View } from "react-native";
 
 const CLERK_PUBLISAHBLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -53,8 +54,17 @@ const InitialLayout = () => {
     }
   }, [loaded]);
 
-  if (!loaded) {
-    return null;
+  useEffect(() => {
+    if (!isLoaded) return;
+
+    const isInTabsGroup = segments[0] === "(tabs)";
+
+    if (isSignedIn && !isInTabsGroup) {
+    }
+  }, [isSignedIn]);
+
+  if (!loaded || !isLoaded) {
+    return <View />;
   }
 
   return (
