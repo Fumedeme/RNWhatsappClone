@@ -25,8 +25,11 @@ const Page = () => {
 
   useEffect(() => {
     if (code.length === 6) {
-      console.log(code);
-      //Verify the code
+      if (singin === "true") {
+        verifySignin();
+      } else {
+        verifyCode();
+      }
     }
   }, [code]);
 
@@ -40,11 +43,11 @@ const Page = () => {
       <Stack.Screen options={{ headerTitle: phone }} />
       <Text style={styles.legal}>
         {" "}
-        We have snet you an SMS with a code to the number above.
+        We have sent you an SMS with a code to the number above.
       </Text>
       <Text style={styles.legal}>
         {" "}
-        To complete your phone number cerification, please enter the 6-digit
+        To complete your phone number verification, please enter the 6-digit
         activation code.
       </Text>
 
@@ -110,7 +113,7 @@ const styles = StyleSheet.create({
     width: 260,
     marginLeft: "auto",
     marginRight: "auto",
-    gap: 4,
+    gap: 8,
   },
   cellRoot: {
     width: 40,
