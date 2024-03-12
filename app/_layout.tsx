@@ -59,7 +59,12 @@ const InitialLayout = () => {
 
     const isInTabsGroup = segments[0] === "(tabs)";
 
+    console.log("isSignedIn changed", isSignedIn);
+
     if (isSignedIn && !isInTabsGroup) {
+      router.replace("/(tabs)/chats");
+    } else if (!isSignedIn) {
+      router.replace("/");
     }
   }, [isSignedIn]);
 
@@ -84,6 +89,7 @@ const InitialLayout = () => {
           headerBackTitle: "Edit Number",
         }}
       />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
     </Stack>
   );
 };
