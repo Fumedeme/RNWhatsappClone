@@ -64,8 +64,9 @@ const Calls = () => {
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{ paddingBottom: 40 }}
       >
-        <View style={defaultStyles.block}>
+        <Animated.View layout={transition} style={defaultStyles.block}>
           <Animated.FlatList
+            skipEnteringExitingAnimations
             data={items}
             scrollEnabled={false}
             keyExtractor={(item) => item.id.toString()}
@@ -75,7 +76,7 @@ const Calls = () => {
             itemLayoutAnimation={transition}
             renderItem={({ item, index }) => (
               <Animated.View
-                entering={FadeInUp.delay(index * 20)}
+                entering={FadeInUp.delay(index * 10)}
                 exiting={FadeOutUp}
               >
                 <View style={[defaultStyles.item]}>
@@ -123,7 +124,7 @@ const Calls = () => {
               </Animated.View>
             )}
           />
-        </View>
+        </Animated.View>
       </ScrollView>
     </View>
   );
