@@ -67,6 +67,7 @@ const Layout = () => {
         <Tabs.Screen
           name="settings"
           options={{
+            headerShown: false,
             title: "Settings",
             tabBarIcon: ({ size, color }) => (
               <Ionicons name="cog" size={size} color={color} />
