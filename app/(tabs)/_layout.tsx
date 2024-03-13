@@ -59,7 +59,7 @@ const Layout = () => {
         <Tabs.Screen
           name="chats"
           options={{
-            title: "Chats",
+            headerShown: false,
             tabBarIcon: ({ size, color }) => (
               <Ionicons name="chatbubbles" size={size} color={color} />
             ),
