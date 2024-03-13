@@ -37,7 +37,7 @@ export default function _layout() {
                   size={30}
                 />
               </TouchableOpacity>
-              <Link href="/" asChild>
+              <Link href="/(modals)/new-chat" asChild>
                 <TouchableOpacity>
                   <Ionicons
                     name="add-circle"
